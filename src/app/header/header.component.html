@@ -1,0 +1,20 @@
+<mat-toolbar color="primary">
+<span>
+  <a routerLink="/">Entourage</a>
+</span>
+<span class="headspace"></span>
+<ul>
+  <li *ngIf="userIsAuthenticated">
+    <a mat-button routerLink="/create" routerLinkActive="mat-accent">New Media</a>
+  </li>
+  <li *ngIf="!userIsAuthenticated">
+    <a mat-button routerLink="/auth/login" routerLinkActive="mat-accent">Login</a>
+  </li>
+  <li *ngIf="!userIsAuthenticated">
+    <a mat-button routerLink="/auth/register" routerLinkActive="mat-accent">Register</a>
+  </li>
+  <li *ngIf="userIsAuthenticated">
+    <a mat-button (click)="onLogout()">Logout</a>
+  </li>
+</ul>
+</mat-toolbar>
