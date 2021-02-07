@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  API_ENDPOINT: "https://entourage-node.herokuapp.com/api"
+  API_ENDPOINT: "http://localhost:3000/api"
 };
 
 /*
