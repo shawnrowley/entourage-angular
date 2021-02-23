@@ -15,12 +15,23 @@ import { AngularMaterialModule } from './angular-material.module';
 import { PostModule } from './posts/post.module';
 
 
+import { SwiperModule } from 'ngx-swiper-wrapper';
+import { SWIPER_CONFIG } from 'ngx-swiper-wrapper';
+import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
+import { MediaDisplayComponent } from './media/media.component';
+
+
+const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
+  direction: 'horizontal',
+  slidesPerView: 'auto'
+};
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    ErrorComponent
+    ErrorComponent,
+    MediaDisplayComponent
   ],
   imports: [
     BrowserModule,
@@ -29,11 +40,13 @@ import { PostModule } from './posts/post.module';
     BrowserAnimationsModule,
     HttpClientModule,
     AngularMaterialModule,
-    PostModule
+    PostModule,
+    SwiperModule
    ],
   providers: [
       {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
       {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
+      {provide: SWIPER_CONFIG, useValue: DEFAULT_SWIPER_CONFIG}
   ],
   bootstrap: [AppComponent],
   entryComponents: [ErrorComponent]

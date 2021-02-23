@@ -4,6 +4,9 @@
 </span>
 <span class="headspace"></span>
 <ul>
+  <li *ngIf="!userIsAuthenticated">
+    <a mat-button routerLink="/swipe" routerLinkActive="mat-accent">Swiper</a>
+  </li>
   <li *ngIf="userIsAuthenticated">
     <a mat-button routerLink="/create" routerLinkActive="mat-accent">New Media</a>
   </li>

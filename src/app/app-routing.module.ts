@@ -3,9 +3,11 @@ import { RouterModule, Routes } from "@angular/router"
 import { AuthGuard } from "./auth/auth.guard";
 import { PostCreateComponent } from "./posts/post-create/post-create.component";
 import { PostListComponent } from "./posts/post-list/post-list.component";
+import { MediaDisplayComponent } from './media/media.component'
 
 const routes: Routes = [
   { path: "", component: PostListComponent},          //i.e. localhost:4200
+  { path: "swipe", component: MediaDisplayComponent},          //i.e. localhost:4200
   { path: "create", component: PostCreateComponent, canActivate: [AuthGuard]},  //i.e. localhost:4200/create
   { path: "edit/:id", component: PostCreateComponent, canActivate: [AuthGuard] },
   { path: "auth", loadChildren: () => import("./auth/auth.module").then(m => m.AuthModule)}
